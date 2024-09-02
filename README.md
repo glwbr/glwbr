@@ -1,16 +1,24 @@
 ## Hi there 👋
 
-<!--
-**glwbr/glwbr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+```nix
+{ pkgs ? import <nixpkgs> {} }: let
+  user = {
+    name = "Glauber Santana";
+    role = "Software Engineer";
+    spokenLanguages = ["Portuguese" "English"];
+    spokenLanguagesString = builtins.concatStringsSep ", " user.spokenLanguages;
+    desc = "Self taught Software Engineer, DevOps enthusiast learning how to [Go] in the [Nix] way";
+  };
+in
+  with pkgs;
+  writeTextFile {
+    name = "README.md";
+    text = ''
+      Name: ${user.name}
+      Description: ${user.desc}
+      Role: ${user.role}
+      Spoken Languages: ${user.spokenLanguagesString}
+    '';
+    # I'm sure you've learnt some amazing stuff today. Feel free to share it.
+  }
+```
