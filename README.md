@@ -1,4 +1,6 @@
-## Hi there! I solve problems, make bad puns, and have fun doing both. 👋
+## Hi there! 👋
+
+> I solve problems, make bad puns, and have fun doing both. 
 
 ```go 
 type Profile struct {
